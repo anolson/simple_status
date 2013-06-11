@@ -1,0 +1,1 @@
+SimpleStatus::Application.config.system_name = "Acme"
