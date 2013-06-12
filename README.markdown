@@ -26,15 +26,22 @@ Updating the system status message and current status.
 
 ### Update status message and current status.
 ```
-  $ curl http://localhost:3000/api/current_status -X PUT -d "message=All systems go" -d "status=up"
+  $ curl http://localhost:3000/api/current_status \
+    -X PUT \
+    -d status=up
+    -d "message[body]=All systems go" \
 ```
 
 ### Update only the status message
 ```
-  $ curl http://localhost:3000/api/current_status -X PUT -d "message=All systems go"
+  $ curl http://localhost:3000/api/current_status
+    -X PUT \
+    -d "message[body]=All systems go"
 ```
 
 ### Update only the status
 ```
-  $ curl http://localhost:3000/api/current_status -X PUT -d "status=down"
+  $ curl http://localhost:3000/api/current_status
+    -X PUT
+    -d status=down
 ```

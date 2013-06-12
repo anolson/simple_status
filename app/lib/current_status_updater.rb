@@ -38,7 +38,7 @@ class CurrentStatusUpdater
   end
 
   def create_message
-    Message.create(body: message, status: current.status)
+    Message.create(body: message[:body], status: current.status)
   end
 
   def only_create_message?
