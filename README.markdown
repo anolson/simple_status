@@ -1,6 +1,6 @@
 # Simple Status
 
-A simple status page that displays the current system status and a status history (a la [GitHub Status](http://status.github.com)).
+A simple status page that displays the current system status and a status history (inspired by [GitHub Status](http://status.github.com)).
 
 ## Getting started
 ```
@@ -35,7 +35,7 @@ Updating the system status message and current status.
 ```
 
 **Response**
-```
+```json
 {
   "status": "up",
   "last_updated": "2013-06-12T02:29:00Z"
