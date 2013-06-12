@@ -1,1 +1,1 @@
-CurrentStatus.create(state: "up")
+CurrentStatus.create(status: "up")
