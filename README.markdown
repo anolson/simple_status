@@ -24,7 +24,7 @@ A simple status page that displays the current system status and a status histor
 
 Updating the system status message and current status.
 
-### Update status message and current status.
+### Update current status with a message
 
 **Request**
 ```
@@ -59,10 +59,21 @@ Updating the system status message and current status.
 }
 ```
 
-### Update only the status message
+### Create a new status message
+
+**Request**
 ```
-  $ curl http://localhost:3000/api/current_status \
-    -X PUT \
-    -d "message[body]=All systems go"
+  $ curl http://localhost:3000/api/messages \
+    -X POST \
+    -d "message[body]=Still performing db maintenance"
+```
+
+**Response**
+```json
+{
+  "body": "Still performing db maintenance",
+  "created_at": "2013-06-12T03:32:08Z",
+  "status": "down"
+}
 ```
 
