@@ -30,6 +30,7 @@ class CurrentStatusUpdater
 
   def update_current_status
     current.update_attributes(status: status)
+    current.touch
   end
 
   def update_current_status_and_create_message
