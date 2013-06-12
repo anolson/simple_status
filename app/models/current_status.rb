@@ -5,7 +5,7 @@ class CurrentStatus < ActiveRecord::Base
   attr_accessible :status
 
   def as_json(options = {})
-    super only: [:status, :last_updated]
+    super only: [:status], methods: [:last_updated]
   end
 
   def last_updated
