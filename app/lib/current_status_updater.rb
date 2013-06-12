@@ -13,8 +13,6 @@ class CurrentStatusUpdater
   def update
     if only_update_status?
       update_current_status
-    elsif only_create_message?
-      create_message
     else
       update_current_status_and_create_message
     end
@@ -39,11 +37,7 @@ class CurrentStatusUpdater
   end
 
   def create_message
-    Message.create(body: message[:body], status: current.status)
-  end
-
-  def only_create_message?
-    status.blank?
+    MessageCreation.create(message)
   end
 
   def only_update_status?

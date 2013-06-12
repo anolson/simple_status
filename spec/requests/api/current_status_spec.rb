@@ -6,16 +6,7 @@ describe "Current status API" do
 
   context "updating both the current status and message" do
     it "updates the current message and status" do
-      put api_current_status_path, { message: 'Blurg!', status: 'down' }
-
-      response.body.should == current_status.reload.to_json
-      response.status.should == 200
-    end
-  end
-
-  context "without changing the status" do
-    it "updates the current status message" do
-      put api_current_status_path, { message: 'Oh noes!' }
+      put api_current_status_path, { message: { body: 'Oh noes!' } , status: 'down' }
 
       response.body.should == current_status.reload.to_json
       response.status.should == 200
@@ -34,7 +25,7 @@ describe "Current status API" do
   context "with invalid parameters" do
     context "when attempting to update both the current status and message" do
       it "does not update the status to anything other than 'up' or 'down'" do
-        put api_current_status_path, { message: 'Blurg!', status: 'WAT' }
+        put api_current_status_path, { message: { body: 'Blurg!' }, status: 'WAT' }
 
         response.body.should == %{{"status":["must either be up or down."]}}
         response.status.should == 422
