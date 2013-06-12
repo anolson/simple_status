@@ -25,23 +25,44 @@ A simple status page that displays the current system status and a status histor
 Updating the system status message and current status.
 
 ### Update status message and current status.
+
+**Request**
 ```
   $ curl http://localhost:3000/api/current_status \
     -X PUT \
-    -d status=up
-    -d "message[body]=All systems go" \
+    -d status=up \
+    -d "message[body]=All systems go"
+```
+
+**Response**
+```
+{
+  "status": "up",
+  "last_updated": "2013-06-12T02:29:00Z"
+}
+```
+
+### Update only the status
+
+**Request**
+```
+  $ curl http://localhost:3000/api/current_status \
+    -X PUT \
+    -d status=down
+```
+
+**Response**
+```json
+{
+  "status": "down",
+  "last_updated": "2013-06-12T02:40:27Z"
+}
 ```
 
 ### Update only the status message
 ```
-  $ curl http://localhost:3000/api/current_status
+  $ curl http://localhost:3000/api/current_status \
     -X PUT \
     -d "message[body]=All systems go"
 ```
 
-### Update only the status
-```
-  $ curl http://localhost:3000/api/current_status
-    -X PUT
-    -d status=down
-```
