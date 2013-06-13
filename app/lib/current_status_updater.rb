@@ -27,8 +27,7 @@ class CurrentStatusUpdater
   end
 
   def update_current_status
-    current.update_attributes(status: status)
-    current.touch
+    current.update_attributes(status: status, last_updated: Time.current)
   end
 
   def update_current_status_and_create_message

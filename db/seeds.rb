@@ -1,1 +1,1 @@
-CurrentStatus.create(status: "up")
+CurrentStatus.create(status: "up", last_updated: Time.current)
