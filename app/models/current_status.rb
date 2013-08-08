@@ -11,4 +11,12 @@ class CurrentStatus < ActiveRecord::Base
   def to_s
     status
   end
+
+  def up?
+    status == 'up'
+  end
+
+  def down?
+    status == 'down'
+  end
 end

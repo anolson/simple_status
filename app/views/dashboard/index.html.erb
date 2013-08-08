@@ -1,2 +1,17 @@
-<h1><%= @system_status.name %> System Status (<%= @system_status.current %>)</h1>
+<section class="clearfix">
+  <h2 class="lead pull-left"><%= @system_status.name %> System Status </h2>
+  <h4 class="pull-right"><small>Last updated <%= distance_of_time_in_words_to_now @system_status.current.last_updated %> ago</small></h4>
+
+</section>
+
+<section>
+  <% if @system_status.current.up? %>
+    <div class="alert alert-success alert-block">
+      <h3>All systems go!</h3>
+    </div>
+  <% end %>
+
+</section>
+
+
 <%= render partial: 'messages' %>

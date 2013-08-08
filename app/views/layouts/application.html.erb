@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= @system_status.name %> System Status</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title><%= @system_status.name %> System Status</title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span8 offset2">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

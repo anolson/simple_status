@@ -1,4 +1,6 @@
-<h2>Status history:</h2>
-<ul id="history">
-  <%= render partial: 'message', collection: @system_status.messages %>
-</ul>
+<section>
+  <h2 class="lead">Recent status history</h2>
+  <ul id="history">
+    <%= render partial: 'message', collection: @system_status.messages %>
+  </ul>
+</section>
