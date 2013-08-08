@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature "Status dashboard" do
   background do
-    CurrentStatus.create(status: "up")
+    CurrentStatus.create(status: "up", last_updated: Time.current)
 
     Message.create(body: "All systems go!")
     Message.create(body: "Oops!?")
@@ -11,7 +11,7 @@ feature "Status dashboard" do
   scenario "displays the current system status." do
     visit root_path
 
-    page.should have_content("Acme System Status (up)")
+    page.should have_content("All systems go!")
   end
 
   scenario "displays a history of older status messages." do
