@@ -7,7 +7,7 @@ class SystemStatus
     CurrentStatus.first
   end
 
-  def messages
-    Message.history(10)
+  def recent_messages(limit = 20)
+    Message.history(limit)
   end
 end

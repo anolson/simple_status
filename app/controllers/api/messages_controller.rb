@@ -1,7 +1,13 @@
 class Api::MessagesController < ApplicationController
+  def index
+    messages = SystemStatus.new.recent_messages
+
+    render json: messages
+  end
+
   def create
     message = MessageCreation.create(params[:message])
 
-    render json: message, status: 200
+    render json: message, status: :created
   end
 end

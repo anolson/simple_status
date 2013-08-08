@@ -77,3 +77,20 @@ Updating the system status message and current status.
 }
 ```
 
+### List status messages
+
+**Request**
+```
+  $ curl http://localhost:3000/api/messages
+```
+
+**Response**
+```json
+[
+  {
+    "body": "Still performing db maintenance",
+    "created_at": "2013-06-12T03:32:08Z",
+    "status": "down"
+  }
+]
+```
