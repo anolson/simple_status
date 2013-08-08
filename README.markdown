@@ -20,11 +20,11 @@ A simple status page that displays the current system status and a status histor
   $ bundle exec guard
 ```
 
-## API
-
-Updating the system status message and current status.
+## Status API
 
 ### Update current status with a message
+
+Update the current status with a message.
 
 **Request**
 ```
@@ -42,7 +42,9 @@ Updating the system status message and current status.
 }
 ```
 
-### Update only the status
+### Update only the current status
+
+Just update the current status.
 
 **Request**
 ```
