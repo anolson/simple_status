@@ -1,4 +1,8 @@
 class SystemStatus
+  def self.current
+    new.current
+  end
+
   def name
     SimpleStatus::Application.config.system_name
   end

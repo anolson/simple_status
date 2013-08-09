@@ -16,6 +16,6 @@ class MessageCreation
   private
 
   def current
-    CurrentStatus.first
+    SystemStatus.current
   end
 end

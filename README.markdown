@@ -42,21 +42,20 @@ Update the current status with a message.
 }
 ```
 
-### Update only the current status
+### Touch the current status
 
 Just update the current status.
 
 **Request**
 ```
-  $ curl http://localhost:3000/api/current_status \
-    -X PUT \
-    -d status=down
+  $ curl http://localhost:3000/api/current_status/touch \
+    -X PUT
 ```
 
 **Response**
 ```json
 {
-  "status": "down",
+  "status": "up",
   "last_updated": "2013-06-12T02:40:27Z"
 }
 ```

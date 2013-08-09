@@ -1,6 +1,8 @@
 SimpleStatus::Application.routes.draw do
   namespace :api do
-    resource :current_status, controller: :current_status, only: :update
+    resource :current_status, controller: :current_status, only: :update do
+      put :touch
+    end
     resources :messages, only: [:index, :create]
   end
 

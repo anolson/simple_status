@@ -11,19 +11,14 @@ class CurrentStatusUpdater
   end
 
   def update
-    if only_update_status?
-      update_current_status
-    else
-      update_current_status_and_create_message
-    end
-
+    update_current_status_and_create_message
     current
   end
 
   private
 
   def current
-    @current ||= CurrentStatus.first
+    @current ||= SystemStatus.current
   end
 
   def update_current_status
@@ -37,9 +32,5 @@ class CurrentStatusUpdater
 
   def create_message
     MessageCreation.create(message)
-  end
-
-  def only_update_status?
-    message.blank?
   end
 end
