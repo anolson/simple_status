@@ -1,5 +1,5 @@
 class CurrentStatusUpdater
-  attr_reader :message, :status
+  attr_reader :message, :status, :updated
 
   def self.update(message, status)
     new(message, status).update
@@ -12,22 +12,27 @@ class CurrentStatusUpdater
 
   def update
     update_current_status_and_create_message
-    current
+    updated
   end
 
   private
 
-  def current
-    @current ||= SystemStatus.current
+  def create_status
+    @updated = Status.create(status: status, last_updated: Time.current)
   end
 
-  def update_current_status
-    current.update_attributes(status: status, last_updated: Time.current)
+  def set_current_status
+    Status.update_all(current: false)
+    updated.update_attribute(:current, true)
   end
 
   def update_current_status_and_create_message
-    update_current_status
-    create_message
+    create_status
+
+    if updated.valid?
+      set_current_status
+      create_message
+    end
   end
 
   def create_message

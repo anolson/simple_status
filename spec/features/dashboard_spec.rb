@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature "Status dashboard" do
   background do
-    CurrentStatus.create(status: "up", last_updated: Time.current)
+    Status.create(current: true, status: "up", last_updated: Time.current)
 
     Message.create(body: "All systems go!")
     Message.create(body: "Oops!?")

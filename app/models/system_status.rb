@@ -8,7 +8,7 @@ class SystemStatus
   end
 
   def current
-    CurrentStatus.first
+    Status.current
   end
 
   def recent_messages(limit = 20)

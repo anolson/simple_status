@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Messages API" do
   let!(:message) { Message.create(body: "All systems go!", status: 'up') }
 
-  let!(:status) { CurrentStatus.create(status: 'up') }
+  let!(:status) { Status.create(current:true, status: 'up') }
 
   describe "POST /api/messages" do
     it "creates a new history message" do

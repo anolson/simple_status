@@ -1,14 +1,17 @@
 require 'spec_helper'
 
 describe "Current status API" do
+  let(:current) { Time.current }
   let!(:status) { Message.create(body: "All systems go!") }
-  let!(:current_status) { CurrentStatus.create(status: 'up') }
+  let!(:current_status) { Status.create(current: true, status: 'up') }
+
+  before { Time.stubs(current: current) }
 
   context "updating both the current status and message" do
     it "updates the current message and status" do
       put api_current_status_path, { message: { body: 'Oh noes!' } , status: 'down' }
 
-      response.body.should == current_status.reload.to_json
+      response.body.should == SystemStatus.current.to_json
       response.status.should == 200
     end
 
@@ -26,7 +29,7 @@ describe "Current status API" do
     it "updates the current status" do
       put touch_api_current_status_path
 
-      response.body.should == current_status.reload.to_json
+      response.body.should == SystemStatus.current.to_json
       response.status.should == 200
     end
   end
