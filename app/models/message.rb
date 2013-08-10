@@ -1,5 +1,7 @@
 class Message < ActiveRecord::Base
-  attr_accessible :body, :status
+  belongs_to :status
+
+  attr_accessible :body, :status_id
 
   scope :history, lambda { |count| order('created_at DESC').limit(count) }
 
