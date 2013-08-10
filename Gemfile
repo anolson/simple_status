@@ -20,6 +20,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'mocha', require: false
   gem 'shoulda'
 end
 
