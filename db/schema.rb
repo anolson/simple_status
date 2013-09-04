@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130810023624) do
+ActiveRecord::Schema.define(:version => 20130904023324) do
 
   create_table "messages", :force => true do |t|
     t.string   "body"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20130810023624) do
   end
 
   create_table "statuses", :force => true do |t|
-    t.string   "status"
+    t.string   "state"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.datetime "last_updated"

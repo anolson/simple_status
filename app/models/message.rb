@@ -10,6 +10,10 @@ class Message < ActiveRecord::Base
   end
 
   def as_json(options = {})
-    super only: [:body, :status, :created_at]
+    super only: [:body, :created_at], methods: :state
+  end
+
+  def state
+    status.state
   end
 end

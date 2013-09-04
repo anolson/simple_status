@@ -3,13 +3,13 @@ require 'spec_helper'
 describe "Current status API" do
   let(:current) { Time.current }
   let!(:status) { Message.create(body: "All systems go!") }
-  let!(:current_status) { Status.create(current: true, status: 'up') }
+  let!(:current_status) { Status.create(current: true, state: 'up') }
 
   before { Time.stubs(current: current) }
 
   context "updating both the current status and message" do
     it "updates the current message and status" do
-      put api_current_status_path, { message: { body: 'Oh noes!' } , status: 'down' }
+      put api_current_status_path, { message: { body: 'Oh noes!' } , state: 'down' }
 
       response.body.should == SystemStatus.current.to_json
       response.status.should == 200
@@ -17,9 +17,9 @@ describe "Current status API" do
 
     context "with invalid parameters" do
       it "does not update the status to anything other than 'up' or 'down'" do
-        put api_current_status_path, { message: { body: 'Blurg!' }, status: 'WAT' }
+        put api_current_status_path, { message: { body: 'Blurg!' }, state: 'WAT' }
 
-        response.body.should == %{{"status":["must either be up or down."]}}
+        response.body.should == %{{"state":["must either be up or down."]}}
         response.status.should == 422
       end
     end

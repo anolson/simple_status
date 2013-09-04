@@ -1,10 +1,10 @@
 class Status < ActiveRecord::Base
-  VALID_STATUSES = %w( up down )
+  VALID_STATES = %w( up down )
   has_many :messages
 
-  validates_inclusion_of :status, message: "must either be up or down.", :in => VALID_STATUSES
+  validates_inclusion_of :state, message: "must either be up or down.", :in => VALID_STATES
 
-  attr_accessible :current, :status, :last_updated
+  attr_accessible :current, :state, :last_updated
 
   def self.current
     where(current: true).first
@@ -19,14 +19,14 @@ class Status < ActiveRecord::Base
   end
 
   def latest_message
-    messages.first
+    messages.history(1).first
   end
 
   def up?
-    status == 'up'
+    state == 'up'
   end
 
   def down?
-    status == 'down'
+    state == 'down'
   end
 end

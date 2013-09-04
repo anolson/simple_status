@@ -1,13 +1,13 @@
 class CurrentStatusUpdater
-  attr_reader :message, :status, :updated
+  attr_reader :message, :state, :updated
 
-  def self.update(message, status)
-    new(message, status).update
+  def self.update(message, state)
+    new(message, state).update
   end
 
-  def initialize(message, status)
+  def initialize(message, state)
     @message = message
-    @status = status
+    @state = state
   end
 
   def update
@@ -18,7 +18,7 @@ class CurrentStatusUpdater
   private
 
   def create_status
-    @updated = Status.create(status: status, last_updated: Time.current)
+    @updated = Status.create(state: state, last_updated: Time.current)
   end
 
   def set_current_status
