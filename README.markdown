@@ -30,14 +30,14 @@ Update the current status with a message.
 ```
   $ curl http://localhost:3000/api/current_status \
     -X PUT \
-    -d status=up \
+    -d state=up \
     -d "message[body]=All systems go"
 ```
 
 **Response**
 ```json
 {
-  "status": "up",
+  "state": "up",
   "last_updated": "2013-06-12T02:29:00Z"
 }
 ```
@@ -55,7 +55,7 @@ Just update the current status.
 **Response**
 ```json
 {
-  "status": "up",
+  "state": "up",
   "last_updated": "2013-06-12T02:40:27Z"
 }
 ```
@@ -74,7 +74,7 @@ Just update the current status.
 {
   "body": "Still performing db maintenance",
   "created_at": "2013-06-12T03:32:08Z",
-  "status": "down"
+  "state": "down"
 }
 ```
 
@@ -91,7 +91,7 @@ Just update the current status.
   {
     "body": "Still performing db maintenance",
     "created_at": "2013-06-12T03:32:08Z",
-    "status": "down"
+    "state": "down"
   }
 ]
 ```
