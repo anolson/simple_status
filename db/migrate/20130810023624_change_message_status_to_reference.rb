@@ -5,7 +5,7 @@ class ChangeMessageStatusToReference < ActiveRecord::Migration
   end
 
   def down
-    remove_column :messages, :status
+    remove_column :messages, :status_id
     add_column :messages, :status, :string
   end
 end
