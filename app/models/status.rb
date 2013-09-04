@@ -18,6 +18,10 @@ class Status < ActiveRecord::Base
     status
   end
 
+  def latest_message
+    messages.first
+  end
+
   def up?
     status == 'up'
   end

@@ -10,9 +10,7 @@ class MessageCreation
   end
 
   def create
-    Message.create(body: message[:body]) do
-      status = current
-    end
+    Message.create(body: message[:body], status_id: current.id)
   end
 
   private

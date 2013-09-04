@@ -5,6 +5,10 @@ class Message < ActiveRecord::Base
 
   scope :history, lambda { |count| order('created_at DESC').limit(count) }
 
+  def to_s
+    body
+  end
+
   def as_json(options = {})
     super only: [:body, :status, :created_at]
   end
