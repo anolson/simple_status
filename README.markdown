@@ -2,6 +2,9 @@
 
 A simple status page that displays the current system status and a status history (inspired by [GitHub Status](http://status.github.com)).
 
+[![Code Climate](https://codeclimate.com/github/anolson/simple_status.png)](https://codeclimate.com/github/anolson/simple_status)
+[![Build Status](https://travis-ci.org/anolson/simple_status.png?branch=master)](https://travis-ci.org/anolson/simple_status)
+
 ## Getting started
 ```sh
 $ git clone git://github.com/anolson/simple_status.git
