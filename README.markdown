@@ -41,7 +41,7 @@ $ curl http://localhost:3000/api/current_status
 
 ### Update current status with a message
 
-Update the current status with a message.
+Update the current status with a message.  Valid states are either `up` or `down`.
 
 **Request**
 ```sh
