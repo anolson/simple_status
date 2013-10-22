@@ -3,35 +3,52 @@
 A simple status page that displays the current system status and a status history (inspired by [GitHub Status](http://status.github.com)).
 
 ## Getting started
-```
-  $ git clone git://github.com/anolson/simple_status.git
-  $ cd simple_status
-  $ bundle
-  $ bundle exec rake db:setup
+```sh
+$ git clone git://github.com/anolson/simple_status.git
+$ cd simple_status
+$ bundle
+$ bundle exec rake db:setup
 ```
 
 ### Start the server
-```
-  $ bundle exec rails s
+```sh
+$ bundle exec rails s
 ```
 
 ### Run the specs
-```
-  $ bundle exec guard
+```sh
+$ bundle exec guard
 ```
 
 ## Status API
+
+### Get current status
+
+Get the current status.
+
+**Request**
+```sh
+$ curl http://localhost:3000/api/current_status
+```
+
+**Response**
+```json
+{
+  "state": "up",
+  "last_updated": "2013-06-12T02:29:00Z"
+}
+```
 
 ### Update current status with a message
 
 Update the current status with a message.
 
 **Request**
-```
-  $ curl http://localhost:3000/api/current_status \
-    -X PUT \
-    -d state=up \
-    -d "message[body]=All systems go"
+```sh
+$ curl http://localhost:3000/api/current_status \
+  -X PUT \
+  -d state=up \
+  -d "message[body]=All systems go"
 ```
 
 **Response**
@@ -44,12 +61,12 @@ Update the current status with a message.
 
 ### Touch the current status
 
-Just update the current status.
+Simply update the current status `last_updated`.
 
 **Request**
-```
-  $ curl http://localhost:3000/api/current_status/touch \
-    -X PUT
+```sh
+$ curl http://localhost:3000/api/current_status/touch \
+  -X PUT
 ```
 
 **Response**
@@ -60,13 +77,13 @@ Just update the current status.
 }
 ```
 
-### Create a new status message
+### Create status message
 
 **Request**
-```
-  $ curl http://localhost:3000/api/messages \
-    -X POST \
-    -d "message[body]=Still performing db maintenance"
+```sh
+$ curl http://localhost:3000/api/messages \
+  -X POST \
+  -d "message[body]=Still performing db maintenance"
 ```
 
 **Response**
@@ -81,8 +98,8 @@ Just update the current status.
 ### List status messages
 
 **Request**
-```
-  $ curl http://localhost:3000/api/messages
+```sh
+$ curl http://localhost:3000/api/messages
 ```
 
 **Response**
