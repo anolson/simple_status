@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.15'
 gem 'sqlite3'
 
 # Gems used only for assets and not required
