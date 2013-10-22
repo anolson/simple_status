@@ -5,12 +5,9 @@
 </section>
 
 <section>
-  <% if @system_status.current.up? %>
-    <div class="alert alert-success alert-block">
-      <h3>All systems go!</h3>
-    </div>
-  <% end %>
-
+  <div class="alert <%= current_status_alert_class %> alert-block">
+    <h4><%= @system_status.current.latest_message %></h4>
+  </div>
 </section>
 
 

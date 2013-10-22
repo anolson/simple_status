@@ -5,3 +5,21 @@
 #last_updated {
   text-transform: uppercase;
 }
+
+#history dt {
+  border-bottom: 1px solid #DDD;
+  margin: 20px 0 10px 0;
+  padding: 5px;
+}
+
+.message {
+  padding: 5px 0;
+}
+
+.message .timestamp {
+  margin-right: 20px;
+}
+
+.message .body {
+  width: 520px;
+}

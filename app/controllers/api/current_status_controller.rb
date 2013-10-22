@@ -1,6 +1,10 @@
 class Api::CurrentStatusController < ApplicationController
+  def show
+    render json: current_status.to_json
+  end
+
   def update
-    status = CurrentStatusUpdater.update(params[:message], params[:status])
+    status = CurrentStatusUpdater.update(params[:message], params[:state])
 
     if status.valid?
       render json: status.to_json

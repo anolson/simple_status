@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 feature "Status dashboard" do
-  background do
-    CurrentStatus.create(status: "up", last_updated: Time.current)
+  given(:current_status) { Status.create(current: true, state: "up", last_updated: Time.current) }
 
-    Message.create(body: "All systems go!")
-    Message.create(body: "Oops!?")
+  background do
+    Message.create(body: "All systems go!", status_id: current_status.id)
+    Message.create(body: "Oops!?", status_id: current_status.id )
   end
 
   scenario "displays the current system status." do
