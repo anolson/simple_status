@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe "Messages API" do
-  let!(:message) { Message.create(body: "All systems go!", status_id: status.id) }
-
   let!(:status) { Status.create(current:true, state: 'up') }
 
   describe "POST /api/messages" do
