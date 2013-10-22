@@ -7,7 +7,16 @@ describe "Current status API" do
 
   before { Time.stubs(current: current) }
 
-  context "updating both the current status and message" do
+  context "GET /api/current_status" do
+    it "updates the current message and status" do
+      get api_current_status_path
+
+      response.body.should == SystemStatus.current.to_json
+      response.status.should == 200
+    end
+  end
+
+  context "PUT /api/current_status" do
     it "updates the current message and status" do
       put api_current_status_path, { message: { body: 'Oh noes!' } , state: 'down' }
 
@@ -25,7 +34,7 @@ describe "Current status API" do
     end
   end
 
-  context "touch the current status " do
+  context "PUT /api/current_status/touch" do
     it "updates the current status" do
       put touch_api_current_status_path
 

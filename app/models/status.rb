@@ -11,7 +11,7 @@ class Status < ActiveRecord::Base
   end
 
   def as_json(options = {})
-    super only: [:status, :last_updated]
+    super only: [:state, :last_updated]
   end
 
   def to_s
