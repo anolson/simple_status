@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904023324) do
+ActiveRecord::Schema.define(:version => 20131026185429) do
 
   create_table "messages", :force => true do |t|
     t.string   "body"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(:version => 20130904023324) do
     t.datetime "updated_at",                      :null => false
     t.datetime "last_updated"
     t.boolean  "current",      :default => false
+  end
+
+  create_table "system_configs", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "api_key"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
