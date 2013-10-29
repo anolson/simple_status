@@ -31,7 +31,8 @@ Get the current status.
 
 **Request**
 ```sh
-$ curl http://localhost:3000/api/current_status
+$ curl http://localhost:3000/api/current_status \
+  -u <api_key>:
 ```
 
 **Response**
@@ -52,6 +53,7 @@ $ curl http://localhost:3000/api/current_status \
   -X PUT \
   -d state=up \
   -d "message[body]=All systems go"
+  -u <api_key>:
 ```
 
 **Response**
@@ -70,6 +72,7 @@ Simply update the current status `last_updated`.
 ```sh
 $ curl http://localhost:3000/api/current_status/touch \
   -X PUT
+  -u <api_key>:
 ```
 
 **Response**
@@ -87,6 +90,7 @@ $ curl http://localhost:3000/api/current_status/touch \
 $ curl http://localhost:3000/api/messages \
   -X POST \
   -d "message[body]=Still performing db maintenance"
+  -u <api_key>:
 ```
 
 **Response**
@@ -102,7 +106,8 @@ $ curl http://localhost:3000/api/messages \
 
 **Request**
 ```sh
-$ curl http://localhost:3000/api/messages
+$ curl http://localhost:3000/api/messages \
+  -u <api_key>:
 ```
 
 **Response**
