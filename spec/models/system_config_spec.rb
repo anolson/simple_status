@@ -3,8 +3,8 @@ require 'spec_helper'
 describe SystemConfig do
   describe "#create_api_key" do
     let(:generated_api_key) { SecureRandom.hex(32) }
-    
-    it "is automatically generated" do
+
+    it "is automatically generates and set an api key" do
       subject.stubs(generate_api_key: generated_api_key)
 
       subject.create_api_key
