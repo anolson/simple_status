@@ -10,6 +10,6 @@ class SystemConfig < ActiveRecord::Base
   private
 
   def generate_api_key
-    SecureRandom.hex(32)
+    Digest::SHA2.hexdigest(SecureRandom.hex(32))
   end
 end
