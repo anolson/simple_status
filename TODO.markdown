@@ -3,4 +3,4 @@
 * Admin interface
 * Add additional states
 * Example agent code
-* _API authentication_
+* ~~API authentication~~
