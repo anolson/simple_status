@@ -1,7 +1,11 @@
 require 'spec_helper'
 
 describe "Messages API" do
+  include RequestHelper
+
   let!(:status) { Status.create(current:true, state: 'up') }
+
+  before { stub_api_authentication }
 
   describe "POST /api/messages" do
     it "creates a new history message" do
@@ -14,7 +18,7 @@ describe "Messages API" do
 
   describe "GET /api/messages" do
     it "returns a list of recent status messages" do
-      get api_messages_path
+      get api_messages_path, {}, { 'HTTP_AUTHORIZATION' => 'Basic'}
 
       response.body.should == Message.history(10).to_json
       response.status.should == 200

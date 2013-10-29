@@ -1,11 +1,16 @@
 require 'spec_helper'
 
 describe "Current status API" do
+  include RequestHelper
+
   let(:current) { Time.current }
   let!(:status) { Message.create(body: "All systems go!") }
   let!(:current_status) { Status.create(current: true, state: 'up') }
 
-  before { Time.stubs(current: current) }
+  before do
+    stub_api_authentication
+    Time.stubs(current: current)
+  end
 
   context "GET /api/current_status" do
     it "updates the current message and status" do
