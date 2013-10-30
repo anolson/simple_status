@@ -1,7 +1,10 @@
 <section class="clearfix">
-  <h2 class="lead pull-left"><%= @system_status.name %> System Status </h2>
-  <h4 class="pull-right"><small>Last updated <%= distance_of_time_in_words_to_now @system_status.current.last_updated %> ago</small></h4>
-
+  <h2 class="lead pull-left"><%= @system_status.name %> System Status</h2>
+  <h4 class="pull-right last_updated">
+    <small>
+      Last updated <%= distance_of_time_in_words_to_now @system_status.current.last_updated %> ago
+    </small>
+  </h4>
 </section>
 
 <section>

@@ -23,3 +23,7 @@
 .message .body {
   width: 520px;
 }
+
+.last_updated {
+  padding: 5px 0;
+}
